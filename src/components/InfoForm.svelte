@@ -37,16 +37,8 @@ let formGender: number = -1;
 export let onFormResponse;
 
 async function submitForm() {
-    /* const resp = await getGraduateData(formFos, formAge, formGender); */
-    /* resp = {} */
-    onFormResponse([
-        { avg_income: 5000, avg_count: 45 },
-        { avg_income: 5000, avg_count: 45 },
-        { avg_income: 5000, avg_count: 45 },
-        { avg_income: 5000, avg_count: 45 },
-        { avg_income: 5000, avg_count: 45 },
-        { avg_income: 5000, avg_count: 45 }
-    ]);
+    const resp = await getGraduateData(formFos, formAge, formGender);
+    onFormResponse(resp);
 }
 
 </script>
