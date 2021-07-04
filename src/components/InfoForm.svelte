@@ -8,6 +8,7 @@ type FormDisplay = {
     display: string
 }
 
+// options for dropdown
 let fosOptions: FormDisplay[] = [
     {id: 0, display: "Education"},
     {id: 1, display: "Visual and performing arts, and communications technologies"},
@@ -32,10 +33,22 @@ let formFos: number = -1;
 let formAge: number = 18;
 let formGender: number = -1;
 
+// callback from parent
+export let onFormResponse;
+
 async function submitForm() {
     /* const resp = await getGraduateData(formFos, formAge, formGender); */
-    const resp = {}
+    /* resp = {} */
+    onFormResponse([
+        { avg_income: 5000, avg_count: 45 },
+        { avg_income: 5000, avg_count: 45 },
+        { avg_income: 5000, avg_count: 45 },
+        { avg_income: 5000, avg_count: 45 },
+        { avg_income: 5000, avg_count: 45 },
+        { avg_income: 5000, avg_count: 45 }
+    ]);
 }
+
 </script>
 
 <form on:submit|preventDefault="{submitForm}">
