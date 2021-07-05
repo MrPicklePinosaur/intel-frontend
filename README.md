@@ -1,1 +1,0 @@
-# localintel frontend

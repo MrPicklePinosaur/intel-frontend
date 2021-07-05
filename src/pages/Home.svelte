@@ -58,7 +58,10 @@
         <option value="{GraphMode.GraduateCount}">graduate count</option>
     </select>
 {:else}
-    <p>Fill out the form first!</p>
+    <div id="prechart-container">
+        <img class="splash-img" src="images/visualization.svg" />
+        <p>Fill out the form to get your data!</p>
+    </div>
 {/if}
 </div>
 <InfoForm onFormResponse={updateChart} />
@@ -67,20 +70,23 @@
 <style global lang="postcss">
 #main-container {
     @apply grid grid-cols-3 gap-x-4 p-4 justify-items-center
-    /* position: fixed; */
-    /* top: 0; */
-    /* left: 0; */
-    /* width: 100%; */
-    /* height: 100%; */
 }
 #chart-container {
     @apply col-span-2 w-11/12 bg-white shadow-xl rounded-lg place-items-center mx-10
+}
+#prechart-container {
+    @apply flex flex-col p-10
+}
+#subprechart-container {
 }
 .result-text {
     @apply text-2xl mx-2 my-1
 }
 .chart-dropdown {
-    @apply block appearance-none w-max mx-2 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+    @apply block appearance-none w-max m-2 bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+}
+.splash-img {
+    @apply w-2/6
 }
 </style>
 
