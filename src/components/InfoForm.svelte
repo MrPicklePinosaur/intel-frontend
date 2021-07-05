@@ -43,26 +43,57 @@ async function submitForm() {
 
 </script>
 
+<div id="form-container">
 <form on:submit|preventDefault="{submitForm}">
-    <select bind:value="{formFos}">
+    <label class="form-label">Field of Study</label>
+    <select class="form-dropdown" bind:value="{formFos}" required>
         <option hidden disabled selected value>select</option> 
         {#each fosOptions as option}
             <option value="{option.id}">{option.display}</option>
         {/each}        
     </select>
 
-    <input type="number" bind:value="{formAge}">
+    <label class="form-label">Age</label>
+    <input class="form-numberfield" type="number" min=0 step=1 bind:value="{formAge}">
 
-    <select bind:value="{formGender}">
+    <label class="form-label">Gender</label>
+    <select class="form-dropdown" bind:value="{formGender}" required>
         <option hidden disabled selected value>select</option> 
         {#each genderOptions as option}
             <option value="{option.id}">{option.display}</option>
         {/each}        
     </select>
 
-    <button type="submit">submit</button>
+    <button class="form-submit-button" type="submit">submit</button>
 </form>
+</div>
 
 <style global lang="postcss">
+#form-container {
+    @apply w-9/12 grid bg-white shadow-xl rounded-lg place-items-center px-10 py-5
+}
+
+.form-label {
+    @apply block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2
+}
+.form-numberfield {
+    @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+}
+.form-dropdown {
+    @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500
+}
+.form-submit-button {
+    @apply bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center my-2
+}
+
+/* hide number input buttons */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}
 </style>
 
